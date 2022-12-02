@@ -4,6 +4,7 @@ import { ThemesComponent } from './themes/themes.component';
 import { PostsComponent } from './posts/posts.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeContentComponent } from './theme-content/theme-content.component';
+import { forumRoutingModule } from './forum-routing.module';
 
 
 
@@ -12,10 +13,12 @@ import { ThemeContentComponent } from './theme-content/theme-content.component';
     ThemesComponent,
     PostsComponent,
     NewThemeComponent,
-    ThemeContentComponent
+    ThemeContentComponent,
+  
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    forumRoutingModule
   ]
 })
-export class ThemesModule { }
+export class ForumModule { }
