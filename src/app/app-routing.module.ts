@@ -24,11 +24,11 @@ const routes: Routes = [
   },
   {
     path: 'cars',
-    loadChildren: () => import('./cars/cars.module').then(m => m.CarsModule)
+    loadChildren: () => import('./features/cars/cars.module').then(m => m.CarsModule)
   },
   {
     path: 'forum',
-    loadChildren: () => import('./forum/forum.module').then(m => m.ForumModule)
+    loadChildren: () => import('./features/forum/forum.module').then(m => m.ForumModule)
   }
 ];
 
