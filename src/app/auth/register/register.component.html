@@ -2,16 +2,37 @@
 
     <h1>Register Form</h1>
     <div class="form">
-        <form action="/register" method="POST">
+        <form [formGroup]="registerFormGroup" (ngSubmit)="register()">
+
+            <ng-container *ngIf="touchedAndInvalid('username')">
+                <p class="error" *ngIf="isRequired('username')">Username is required.</p>
+            </ng-container>
+
             <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+            <input formControlName="username" type="text" id="username" name="username">
+
+            <ng-container *ngIf="touchedAndInvalid('email')">
+                <p class="error" *ngIf="isRequired('email')">Email is required.</p>
+                <p class="error" *ngIf="isInvalid('email')">Invalid Email.</p>
+                <!--  TODO: <p>Email is taken.</p> msg from backend -->
+            </ng-container>
+
+            <label for="email">Email</label>
+            <input formControlName="email" type="text" id="email" name="email">
+
+            <ng-container *ngIf="touchedAndInvalid('password')">
+                <p class="error" *ngIf="isRequired('password')">Password is required.</p>
+                <p class="error" *ngIf="hasMinLength('password')">Password must be at least 4 characters long.</p>
+            </ng-container>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input formControlName="password" type="password" id="password" name="password">
+
+            <p class="error" *ngIf="samePasswords('repass')">Passwords are not the same.</p>
 
             <label for="repass">Re-Password</label>
-            <input type="password" id="repeatPassword" name="repass">
-            <input type="submit" value="Register">
+            <input formControlName="repass" type="password" id="repeatPassword" name="repass">
+            <input [disabled]="registerFormGroup.invalid" type="submit" value="Register">
         </form>
     </div>
 
