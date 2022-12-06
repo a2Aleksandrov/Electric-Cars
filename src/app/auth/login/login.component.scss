@@ -1,7 +1,7 @@
 .form {
     border-radius: 5px;
     padding: 20px;
-    width: 36%;
+    width: 38%;
     margin: auto;
 }
 
@@ -47,4 +47,9 @@ input[type=password] {
     padding: 12px 20px 12px 12px;
     border-radius: 0 4px 4px 4px;
     margin: 8px 0 2em;
+}
+
+p.error {
+    text-align: left;
+    color: red;
 }

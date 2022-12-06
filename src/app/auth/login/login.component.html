@@ -2,14 +2,26 @@
 
     <h1>Login Form</h1>
     <div class="form">
-        <form>
+        <!-- TODO <p>{{errorMessage from backend}}</p> -->
+        <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+
+            <ng-container *ngIf="touchedAndInvalid('username')">
+                <p class="error" *ngIf="isRequired('username')">Username is required.</p>
+            </ng-container>
+
             <label for="username">Username</label>
-            <input type="text" id="username" name="username">
-            
+            <input formControlName="username" type="text" id="username" name="username">
+
+            <ng-container *ngIf="touchedAndInvalid('password')">
+                <p class="error" *ngIf="isRequired('password')">Password is required.</p>
+                <p class="error" *ngIf="hasMinLength('password')">Password must be at least 4 characters long.</p>
+            </ng-container>
+
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
+            <input formControlName="password" type="password" id="password" name="password">
+
+            <input [disabled]="loginFormGroup.invalid" type="submit" value="Login">
         </form>
     </div>
-    
+
 </section>
