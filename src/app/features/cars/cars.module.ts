@@ -13,7 +13,7 @@ import { carsRoutingModule } from './cars-routing.module';
   ],
   imports: [
     CommonModule,
-    carsRoutingModule
+    carsRoutingModule,
   ]
 })
 export class CarsModule { }
