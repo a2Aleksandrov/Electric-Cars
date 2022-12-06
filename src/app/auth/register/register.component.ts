@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { passCheck } from '../util';
 
 @Component({
@@ -9,6 +11,7 @@ import { passCheck } from '../util';
 })
 export class RegisterComponent {
 
+  errorMessage!: string;
   passwordControl = new FormControl(null, [Validators.required, Validators.minLength(4)]);
 
   registerFormGroup: FormGroup = this.formBuilder.group({
@@ -18,7 +21,7 @@ export class RegisterComponent {
     repass: new FormControl(null, [passCheck(this.passwordControl)])
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
 
   touchedAndInvalid(control: string) {
@@ -41,8 +44,16 @@ export class RegisterComponent {
     return this.registerFormGroup.controls[`${repass}`].errors?.['doesNotMatch'];
   }
 
-  register() {
-    return
+  register(): void {
+    
+    this.authService.register(this.registerFormGroup.value).subscribe({
+      next: () => {
+        this.router.navigate(['/cars']);
+      },
+      error: (err) => {
+        this.errorMessage = err.error;
+      }
+    })
   }
 
 }

@@ -2,7 +2,7 @@
 
     <h1>Login Form</h1>
     <div class="form">
-        <!-- TODO <p>{{errorMessage from backend}}</p> -->
+        <p class="error">{{errorMessage}}</p>
         <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
 
             <ng-container *ngIf="touchedAndInvalid('username')">

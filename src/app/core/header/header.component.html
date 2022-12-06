@@ -1,13 +1,18 @@
 <header>
     <ul>
-        <li><a href="/home"><img class="logo" src="/assets/oie_png.png"></a></li>
-        <li><a href="/cars">Electric Cars</a></li>
+        <li><a routerLink="/home"><img class="logo" src="/assets/oie_png.png"></a></li>
+        <li><a routerLink="/cars">Electric Cars</a></li>
 
-        <li><a href="/forum">Forum</a></li>
+        <li><a routerLink="/forum">Forum</a></li>
+        <ng-container *ngIf="!(isLoggedIn | async)">
+            <li><a routerLink="/register">Register</a></li>
+            <li><a routerLink="/login">Login</a></li>
+        </ng-container>
 
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <ng-container *ngIf="(isLoggedIn | async)">
+            <li>Welcome {{(currentUser | async)?.username}}</li>
+            <li><a (click)="handleLogout()">Logout</a></li>
+        </ng-container>
 
     </ul>
 </header>
