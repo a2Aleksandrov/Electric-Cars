@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
-import { CarsMarkComponent } from "./cars-mark/cars-mark.component";
+import { CarMarksComponent } from "./car-marks/car-marks.component";
 import { CarsComponent } from "./cars/cars.component";
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: ':mark',
-        component: CarsMarkComponent
+        component: CarMarksComponent
     }
 ]
 
