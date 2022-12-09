@@ -4,15 +4,16 @@
         <li><a routerLink="/cars">Electric Cars</a></li>
 
         <li><a routerLink="/forum">Forum</a></li>
-        <ng-container *ngIf="!(isLoggedIn | async)">
-            <li><a routerLink="/register">Register</a></li>
-            <li><a routerLink="/login">Login</a></li>
-        </ng-container>
-
-        <ng-container *ngIf="(isLoggedIn | async)">
-            <li>Welcome {{(currentUser | async)?.username}}</li>
-            <li><a (click)="handleLogout()">Logout</a></li>
-        </ng-container>
-
+        <div class="auth">
+            <ng-container *ngIf="!(isLoggedIn | async)">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ng-container>
+            
+            <ng-container *ngIf="(isLoggedIn | async)">
+                <li>Welcome {{(currentUser | async)?.username}}</li>
+                <li><a (click)="handleLogout()">Logout</a></li>
+            </ng-container>
+        </div>
     </ul>
 </header>
