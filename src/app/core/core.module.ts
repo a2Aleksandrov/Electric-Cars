@@ -12,7 +12,7 @@ import { localStorage } from './injection-token';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,

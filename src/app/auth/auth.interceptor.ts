@@ -18,11 +18,10 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(tap(event => {
       if (event instanceof HttpResponse) {
-        if (event.url?.endsWith('login') && event.url.endsWith('register')) {
-          const userData = event.body as IUser;
-          this.authService.handleLogin(userData); // the interceptor gives the user data to the behaviour subject 
+        if (event.url?.endsWith('login') || event.url?.endsWith('register')) {
+          this.authService.handleLogin(event.body as IUser); // the interceptor gives the user data to the behaviour subject 
         } else if (event.url?.endsWith('logout')) {
-          this.authService.handleLogout(); // the interceptor activate the handleLogout fn which sets set userData as undefined
+          this.authService.handleLogout(); // the interceptor activate the handleLogout fn which sets user data as undefined
         }
       }
     }))

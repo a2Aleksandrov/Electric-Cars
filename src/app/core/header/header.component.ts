@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
@@ -9,7 +9,7 @@ import { IUser } from 'src/app/features/interfaces';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent {
 
   currentUser: Observable<IUser | undefined> = this.authService.currentUser;
   isLoggedIn: Observable<boolean> = this.authService.isLoggedIn;
@@ -17,12 +17,8 @@ export class HeaderComponent implements OnInit{
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-   this.isLoggedIn.subscribe((y) => console.log(y)) // 
-  }
-
   handleLogout() {
-    if (this.isLoggingOut) { // this prevents the client to click on logout btn multiple times while logging out reguest is in progress.
+    if (this.isLoggingOut) { // this prevents the client to click on logout btn multiple times while logging out request is in progress.
       return;
     }
     this.isLoggingOut = true;
@@ -34,7 +30,7 @@ export class HeaderComponent implements OnInit{
       },
       error: (err) => {
         this.isLoggingOut = false;
-        console.log(err);
+        console.error(err);
       }
     });
   }

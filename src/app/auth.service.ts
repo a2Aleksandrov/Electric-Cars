@@ -29,7 +29,9 @@ export class AuthService {
   }
 
   handleLogin(userData: IUser) {
-    this._currentUser.next(userData); // this function gives the new value(the user data) to the behaviour subject
+    if (userData.username) {
+      this._currentUser.next(userData); // this function gives the new value(the user data) to the behaviour subject
+    }
   }
 
   handleLogout() {
@@ -39,7 +41,8 @@ export class AuthService {
   authenticate(): Observable<IUser> {
     return this.http.get<IUser>(`${environment.baseUrl}/profile`, { withCredentials: true })
       .pipe(tap(data => this.handleLogin(data)), catchError((err) => {
-        return EMPTY; // syntax for Empty Observable
+        return EMPTY; // this is syntax for empty Obesarvable.
       }))
   }
+
 }

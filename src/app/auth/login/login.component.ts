@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -30,7 +31,7 @@ export class LoginComponent {
     return this.loginFormGroup.controls[`${control}`].errors?.['minlength'];
   }
 
-  login(): void {
+  login() {
     this.authService.login(this.loginFormGroup.value).subscribe({
       next: () => {
         this.router.navigate(['/cars']);
