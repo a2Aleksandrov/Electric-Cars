@@ -1,0 +1,24 @@
+.emblems{
+display: inline-block;
+margin: 0;
+}
+
+.car-mark {
+    display: inline-block;
+    margin: 3rem;
+}
+
+.car-mark:hover p.name {
+    background: #607588;
+}
+
+img.mark {
+    display: inline-block;
+    margin: 0 auto;
+    width: 8rem;
+}
+
+p.name {
+    display: block;
+    text-align: center;
+}

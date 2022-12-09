@@ -1,1 +1,8 @@
-<p>cars works!</p>
+<section class="emblems">
+
+    <div class="car-mark" *ngFor="let mark of marks">
+        <a class="btn" [routerLink]="['/cars', mark.name]"><img class="mark" src={{mark.img}}></a>
+        <p class="name">{{mark.name}}</p>
+    </div>
+
+</section>

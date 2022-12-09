@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICar } from '../../interfaces';
+import { ICar, IMark } from '../../interfaces';
 import { CarsService } from '../cars.service';
 
 @Component({
@@ -9,17 +9,17 @@ import { CarsService } from '../cars.service';
 })
 export class CarsComponent implements OnInit {
 
-  cars!: ICar[];
+  marks!: IMark[];
 
   constructor(private carsService: CarsService) { }
+ 
 
   ngOnInit(): void {
-    this.carsService.getAllCars().subscribe({
-      next: (cars) => {
-        this.cars = cars;
-        console.log(this.cars);
+    this.carsService.getAllMarks().subscribe({
+      next: (marks) => {
+        console.log(marks);
+       this.marks = marks;
       }
     });
   }
-
 }
