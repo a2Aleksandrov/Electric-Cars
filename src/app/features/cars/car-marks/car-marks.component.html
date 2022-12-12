@@ -2,7 +2,7 @@
 
     <div class="car-btns">
         <ul>
-            <li class="mark" *ngFor="let car of cars"><a href="">{{car.mark}} {{car.model}}</a></li> 
+            <li class="mark" *ngFor="let car of cars"><a [routerLink]="['/cars', car.mark, car.model]">{{car.mark}} {{car.model}}</a></li> 
         </ul>
     </div>
 

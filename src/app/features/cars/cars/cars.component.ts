@@ -17,7 +17,6 @@ export class CarsComponent implements OnInit {
   ngOnInit(): void {
     this.carsService.getAllMarks().subscribe({
       next: (marks) => {
-        console.log(marks);
        this.marks = marks;
       }
     });

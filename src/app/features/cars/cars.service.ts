@@ -19,7 +19,7 @@ export class CarsService {
     return this.http.get<ICar[]>(`${environment.baseUrl}/cars/${mark}`);
   }
 
-  getCarByModel() {
-
+  getCarByModel(mark: string, model: string) {
+    return this.http.get<ICar>(`${environment.baseUrl}/cars/${mark}/${model}`);
   }
 }
