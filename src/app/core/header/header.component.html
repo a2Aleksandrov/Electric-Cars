@@ -11,7 +11,7 @@
             </ng-container>
             
             <ng-container *ngIf="(isLoggedIn | async)">
-                <li>Welcome {{(currentUser | async)?.username}}</li>
+                <li>Welcome {{(currentUser | async)?.username | titlecase}}</li>
                 <li><a (click)="handleLogout()">Logout</a></li>
             </ng-container>
         </div>
