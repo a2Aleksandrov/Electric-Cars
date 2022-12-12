@@ -18,3 +18,23 @@ li {
 a {
     text-decoration: none;
 }
+
+.mark {
+    width: 300%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.data {
+    width: 80%;
+}
+
+.img {
+    width: 20%;
+}
+
+img {
+    padding-left: 10rem;
+    width: 40rem;
+}

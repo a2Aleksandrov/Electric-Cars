@@ -1,10 +1,39 @@
 <div class="carDetails">
 
     <h1>{{car.mark}} {{car.model}}</h1>
-    <div class="images">
-        <img src={{car.img}}>
+    <div class="images" *ngFor="let every of car.img">
+        <img src={{every}}>
     </div>
-    
-    <p class="details">{{car.details}}</p>
+
+    <h4>Overview</h4>
+    <p class="overview">{{car.details}} </p>
+
+    <div class="specs">
+
+        <div class="price">
+            <h4>Price</h4>
+            <p class="overview">{{car.price}} &euro; </p>
+        </div>
+
+        <div class="mileage">
+
+            <h4>Mileage with a single charge</h4>
+            <p class="mileage">City: {{car.mileage.city}} km</p>
+            <p class="mileage">Highway: {{car.mileage.highway}} km</p>
+        </div>
+
+        <div class="performance">
+            <h4>Performance</h4>
+            <p class="performance">Acceleration 0-100 km/h: {{car.acceleration}} sec</p>
+            <p class="performance">Top Speed: {{car.topSpeed}} km/h</p>
+        </div>
+
+        <div class="battery">
+            <h4>Battery</h4>
+            <p class="battery">Battery Type: {{car.battery.kind}}</p>
+            <p class="battery">Useable capacity: {{car.battery.capacity}} kWh</p>
+        </div>
+        
+    </div>
 
 </div>
