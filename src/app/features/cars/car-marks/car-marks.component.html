@@ -6,7 +6,7 @@
                 <div class="data">
                     <h1>{{car.mark}} {{car.model}}</h1>
                     <p>{{car.details | shorten}}</p>
-                    <a [routerLink]="['/cars', car.mark, car.model]">show more details</a>
+                    <a [routerLink]="['/cars', car.mark, car.model]">more details</a>
                 </div>
                 <div class="img">
                     <img src={{car.img[0]}} alt="">
