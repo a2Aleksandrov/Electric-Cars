@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { IPost, ITheme } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,18 @@ export class ForumService {
   constructor(private http: HttpClient) { }
 
   getAllThemes() {
-    this.http.get(`${environment.baseUrl}/themes`);
+    return this.http.get<ITheme[]>(`${environment.baseUrl}/themes`);
   }
 
   getThemeById(themeId: string) {
-    this.http.get(`${environment.baseUrl}/themes/${themeId}`);
+   return this.http.get<ITheme>(`${environment.baseUrl}/themes/${themeId}`);
   }
 
   addTheme() {
-    this.http.post(`${environment.baseUrl}/themes`, {}, { withCredentials: true });
+    return this.http.post<ITheme>(`${environment.baseUrl}/themes`, {}, { withCredentials: true });
   }
 
   postComment() {
-    this.http.post(`${environment.baseUrl}/theme/posts`, {}, { withCredentials: true });
+    return this.http.post<IPost>(`${environment.baseUrl}/theme/posts`, {}, { withCredentials: true });
   }
 }
