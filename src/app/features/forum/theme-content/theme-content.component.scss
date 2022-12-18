@@ -147,8 +147,6 @@
     color: red;
 }
 
-/* answer-comment */
-
 .answer-comment {
     width: 100%;
     /* display: flex; */
@@ -158,11 +156,6 @@
 .answer-comment p {
     flex-basis: 15%;
     padding-bottom: 0.3em;
-}
-
-.answer-comment p span {
-    color: rgb(0, 128, 182);
-    font-size: 1.2em;
 }
 
 .answer {
@@ -176,6 +169,14 @@
     width: 90%;
     margin-top: 1rem;
     border-radius: 0.5rem;
+}
+
+.answer p {
+    text-align: left;
+    color: red;
+    margin: 0;
+    padding: 0;
+    margin-left: 3rem;
 }
 
 .answer button {
