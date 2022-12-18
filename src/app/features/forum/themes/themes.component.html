@@ -1,23 +1,23 @@
-<!-- <div *ngIf="!themes">Loading...</div> -->
+<div *ngIf="!themes">Loading...</div>
 
-<div class="theme-title" >
+<button routerLink="/forum/addTheme">Add Theme</button>
+<div class="theme-title">
     <div class="theme-container">
-        <div class="theme-name-wrapper">
+        <div class="theme-name-wrapper" *ngFor="let theme of themes">
             <div class="theme-name">
-                <a [routerLink]="['/themes',]" class="normal">
-                    <h2>themeName</h2>
+                <a [routerLink]="['/forum', theme._id]" class="normal">
+                    <h2>{{theme.title}}</h2>
                 </a>
+                
                 <div class="columns">
                     <div>
-                        <p>Date: <time>date created</time></p>
+                        <p>date added: <time> {{theme.createdAt | date: 'yyyy-mm-dd hh:mm'}}</time></p>
                         <div class="nick-name">
-                            <p>Username: <span>authorName</span></p>
+                            <p>author: <span> {{theme.author.username | titlecase}}</span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
-    
 </div>

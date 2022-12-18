@@ -1,1 +1,41 @@
-<p>theme-content works!</p>
+<div *ngIf="!theme">Loading...</div>
+
+<div class="theme-content" *ngIf="theme">
+
+    <div class="theme-title">
+        <div class="theme-name-wrapper">
+            <div class="theme-name">
+                <h2>{{theme.title}}</h2>
+                <p class="content">{{theme.content}}</p>
+                <p class="author">author: <span> {{theme.author.username | titlecase}}</span></p>
+                <p>date added: <span><time>{{theme.createdAt | date: 'yyyy-mm-dd hh:mm'}}</time></span></p>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="theme.posts">
+
+        <div class="comment" *ngFor="let post of theme.posts">
+            <header class="header">
+                <p><span>{{post.author.username | titlecase}}</span> posted on <time>{{post.createdAt}}</time></p>
+            </header>
+            <div class="comment-main">
+                <div class="userdetails">
+                    <img src="/assets/profile.png" alt="avatar">
+                </div>
+                <div class="post-content">
+                    <p>{{post.content}}</p>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+    <div class="answer-comment" *ngIf="hasUser">
+        <p>Write comment:</p>
+        <div class="answer">
+            <form>
+                <textarea name="postText" id="comment" cols="30" rows="10"></textarea>
+                <button>Post</button>
+            </form>
+        </div>
+    </div>
+</div>

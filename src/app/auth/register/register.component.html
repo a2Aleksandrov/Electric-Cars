@@ -33,6 +33,8 @@
             <label for="repass">Re-Password</label>
             <input formControlName="repass" type="password" id="repeatPassword" name="repass">
             <input [disabled]="registerFormGroup.invalid" type="submit" value="Register">
+            <p>Already have profile ? <a routerLink="/login">Login</a></p>
+
         </form>
     </div>
 
