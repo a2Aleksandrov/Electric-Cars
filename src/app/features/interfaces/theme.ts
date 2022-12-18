@@ -2,14 +2,22 @@ export interface ITheme {
     _id: string;
     title: string;
     content: string;
-    author: string;
+    author: {
+        id: string;
+        username: string;
+        email: string;
+    };
     posts: {
         _id: string;
         content: string;
-        author: string;
+        author: {
+            _id: string;
+            username: string;
+            email: string;
+        };
         createdAt: string;
         updatedAt: string;
-    },
+    }[],
     createdAt: string;
     updatedAt: string;
 }
