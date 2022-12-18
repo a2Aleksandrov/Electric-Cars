@@ -22,7 +22,7 @@ export class ForumService {
     return this.http.post<ITheme>(`${environment.baseUrl}/themes`, {}, { withCredentials: true });
   }
 
-  postComment() {
-    return this.http.post<IPost>(`${environment.baseUrl}/theme/posts`, {}, { withCredentials: true });
+  postComment(themeId: string, PostContent: string) {
+    return this.http.post<IPost>(`${environment.baseUrl}/themes/${themeId}/comment`, {themeId, PostContent}, { withCredentials: true });
   }
 }
