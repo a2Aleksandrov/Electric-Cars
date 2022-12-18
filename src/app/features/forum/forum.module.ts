@@ -5,6 +5,7 @@ import { PostsComponent } from './posts/posts.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeContentComponent } from './theme-content/theme-content.component';
 import { forumRoutingModule } from './forum-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { forumRoutingModule } from './forum-routing.module';
   ],
   imports: [
     CommonModule,
-    forumRoutingModule
+    forumRoutingModule,
+    FormsModule
   ]
 })
 export class ForumModule { }

@@ -32,9 +32,11 @@
     <div class="answer-comment" *ngIf="hasUser">
         <p>Write comment:</p>
         <div class="answer">
-            <form>
-                <textarea name="postText" id="comment" cols="30" rows="10"></textarea>
-                <button>Post</button>
+            <p *ngIf="comment.touched && comment.errors?.['required']">Post cannot be empty.</p>
+            <form #postForm="ngForm" (ngSubmit)="postComment(postForm.value)">
+                <textarea name="comment" id="comment" #comment="ngModel" ngModel required cols="30"
+                    rows="10"></textarea>
+                <button [disabled]="postForm.invalid">Post</button>
             </form>
         </div>
     </div>
