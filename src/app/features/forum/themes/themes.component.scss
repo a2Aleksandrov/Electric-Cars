@@ -19,13 +19,15 @@ p {
     align-items: center;
     padding: 0.3em 0.5em;
     border: 1px solid #999;
-    border-radius: 0.3em;
+    border-radius: 0.5em;
     font-size: 0.8em;
     margin-top: 1em;
 }
 
 .theme-title {
-    padding: 0;
+    padding-left: 17rem;
+    width: 70%;
+
 }
 
 .theme-name {
@@ -40,4 +42,13 @@ p {
 
 time {
     font-weight: bold;
+}
+
+button {
+    float: left;
+    margin-top: 1em;
+    text-align: center;
+    padding: 0.4em 1.5em;
+    border: 1px solid #333333;
+    border-radius: 0.3em;
 }

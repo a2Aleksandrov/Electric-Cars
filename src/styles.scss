@@ -8,6 +8,15 @@ div.container {
     display: block;
 }
 
+button {
+    background-color: #607588;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 @-webkit-keyframes fadeOut {
     from {
         opacity: 1;
