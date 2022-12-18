@@ -12,12 +12,15 @@ export class CarsComponent implements OnInit {
   marks!: IMark[];
 
   constructor(private carsService: CarsService) { }
- 
+
 
   ngOnInit(): void {
     this.carsService.getAllMarks().subscribe({
       next: (marks) => {
-       this.marks = marks;
+        this.marks = marks;
+      },
+      error: (err) => {
+        console.error(err);
       }
     });
   }

@@ -19,6 +19,9 @@ export class CarMarksComponent implements OnInit {
     this.carsService.getCarsByMark(mark).subscribe({
       next: (cars) => {
         this.cars = cars;
+      },
+      error: (err) => {
+        console.error(err);
       }
     });
   }
