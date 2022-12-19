@@ -1,7 +1,7 @@
 export interface ITheme {
     _id: string;
     title: string;
-    content: string;
+    comment: string;
     author: {
         id: string;
         username: string;
@@ -9,7 +9,7 @@ export interface ITheme {
     };
     posts: {
         _id: string;
-        content: string;
+        comment: string;
         author: {
             _id: string;
             username: string;

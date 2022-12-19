@@ -1,10 +1,10 @@
 export interface IPost {
     _id: string;
-    content: string;
+    comment: string;
     theme: {
         _id: string;
         title: string;
-        content: string;
+        comment: string;
         author: {
             _id: string;
             username: string;
@@ -12,7 +12,7 @@ export interface IPost {
         };
         posts: {
             _id: string;
-            content: string;
+            comment: string;
             author: {
                 _id: string;
                 username: string;
