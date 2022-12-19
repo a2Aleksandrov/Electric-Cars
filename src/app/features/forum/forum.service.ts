@@ -15,14 +15,14 @@ export class ForumService {
   }
 
   getThemeById(themeId: string) {
-   return this.http.get<ITheme>(`${environment.baseUrl}/themes/${themeId}`);
+    return this.http.get<ITheme>(`${environment.baseUrl}/themes/${themeId}`);
   }
 
   addTheme() {
     return this.http.post<ITheme>(`${environment.baseUrl}/themes`, {}, { withCredentials: true });
   }
 
-  postComment(themeId: string, PostContent: string) {
-    return this.http.post<IPost>(`${environment.baseUrl}/themes/${themeId}/comment`, {themeId, PostContent}, { withCredentials: true });
+  postComment(themeId: string, comment: string, authorId: string | undefined) {
+    return this.http.post<IPost>(`${environment.baseUrl}/themes/${themeId}/comments`, { themeId, comment, authorId }, { withCredentials: true });
   }
 }
