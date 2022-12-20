@@ -16,7 +16,7 @@
 
         <div class="comment" *ngFor="let post of theme.posts">
             <header class="header">
-                <p><span>{{post.author.username | titlecase}}</span> posted on <time>{{post.createdAt}}</time></p>
+                <p><span>{{post.author.username | titlecase}}</span> posted on <time>{{post.createdAt | date: 'yyyy-mm-dd hh:mm'}}</time></p>
             </header>
             <div class="comment-main">
                 <div class="userdetails">
