@@ -1,7 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-import { ITheme, IUser } from '../../interfaces';
+import { ITheme } from '../../interfaces';
 import { ForumService } from '../forum.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class ThemeContentComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private forumService: ForumService, private authService: AuthService, private router: Router) { }
 
-
   ngOnInit(): void {
     this.authService.currentUser.subscribe(user => this.currentUserId = user?._id)
     this.authService.isLoggedIn.subscribe(hasUser => this.hasUser = hasUser);
@@ -32,13 +31,28 @@ export class ThemeContentComponent implements OnInit {
       }
     });
   }
+  //async method to reload component
+  async reloadCurrentRoute(url: string): Promise<boolean> {
+    await this.router.navigateByUrl('/', { skipLocationChange: true });
+    return this.router.navigateByUrl(url);
+  }
 
   postComment(formData: any) {
     this.forumService.postComment(this.themeId, formData.comment, this.currentUserId).subscribe({
       next: (data) => {
         console.log(data);
-        this.router.createUrlTree([`/forum/${this.themeId}`]);
+      },
+      error: (err) => {
+        console.error(err);
       }
     });
+    this.forumService.getThemeById(this.themeId).subscribe({
+      next: () => {
+        this.reloadCurrentRoute(this.router.url);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 }

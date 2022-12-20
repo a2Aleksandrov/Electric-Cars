@@ -18,7 +18,7 @@ const routes: Routes = [
     {
         path: ':themeId',
         component: ThemeContentComponent
-    } 
+    }
 ]
 
 export const forumRoutingModule = RouterModule.forChild(routes);

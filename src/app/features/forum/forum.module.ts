@@ -8,19 +8,18 @@ import { forumRoutingModule } from './forum-routing.module';
 import { FormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     ThemesComponent,
     PostsComponent,
     NewThemeComponent,
     ThemeContentComponent,
-  
+
   ],
   imports: [
     CommonModule,
     forumRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class ForumModule { }
