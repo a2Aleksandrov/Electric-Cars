@@ -73,7 +73,6 @@
     margin-top: 1em;
     border: 1px solid;
     border-radius: 0.3em;
-    width: 100%;
     padding: 1em;
 }
 
@@ -120,33 +119,6 @@
     border: 1px solid;
 }
 
-.footer {
-    font-size: 1.5em;
-    border-top: 1px dashed;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgb(0, 128, 182);
-}
-
-.footer i {
-    background-color: #ffffff;
-    border: none;
-    cursor: pointer;
-}
-
-.footer p {
-    padding-left: 0.5em;
-}
-
-.footer .fas.fa-thumbs-up {
-    color: green;
-}
-
-.footer .fas.fa-thumbs-down {
-    color: red;
-}
-
 .answer-comment {
     width: 100%;
     /* display: flex; */
@@ -189,10 +161,6 @@
 
 .answer button:hover {
     cursor: pointer;
-}
-
-.comment-area {
-    min-width: 100%
 }
 
 span {
