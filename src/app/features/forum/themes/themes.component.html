@@ -1,17 +1,17 @@
 <div *ngIf="!themes">Loading...</div>
 
-<button routerLink="/forum/addTheme">Add Theme</button>
+<button routerLink="/forum/newTheme">Add Theme</button>
 <div class="theme-title">
     <div class="theme-container">
         <div class="theme-name-wrapper" *ngFor="let theme of themes">
             <div class="theme-name">
-                <a [routerLink]="['/forum', theme._id]" class="normal">
+                <a [routerLink]="['/forum/theme', theme._id]" class="normal">
                     <h2>{{theme.title}}</h2>
                 </a>
                 
                 <div class="columns">
                     <div>
-                        <p>date added: <time> {{theme.createdAt | date: 'yyyy-mm-dd hh:mm'}}</time></p>
+                        <p>date added: <time> {{theme.createdAt | date:'dd-MM-yyyy hh:mm'}}</time></p>
                         <div class="nick-name">
                             <p>author: <span> {{theme.author.username | titlecase}}</span></p>
                         </div>
