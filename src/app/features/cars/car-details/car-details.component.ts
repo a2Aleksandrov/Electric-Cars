@@ -19,7 +19,6 @@ export class CarDetailsComponent implements OnInit {
     this.carsService.getCarByModel(car['mark'], car['model']).subscribe({
       next: (car) => {
         this.car = car;
-        console.log(car);
       },
       error: (error) => {
         console.log(error);

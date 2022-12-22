@@ -24,6 +24,9 @@ export class ThemeContentComponent implements OnInit {
     this.themeId = this.activatedRoute.snapshot.params['themeId'];
     this.forumService.getThemeById(this.themeId).subscribe({
       next: (theme) => {
+        if (!theme._id) {
+          this.router.navigateByUrl('404');
+        }
         this.theme = theme;
       },
       error: (err) => {

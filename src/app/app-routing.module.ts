@@ -4,6 +4,7 @@ import { IsLoggedGuard } from './auth/is-logged.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './core/home/home.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'forum',
     loadChildren: () => import('./features/forum/forum.module').then(m => m.ForumModule)
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

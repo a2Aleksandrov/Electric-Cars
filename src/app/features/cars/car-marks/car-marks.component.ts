@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICar } from '../../interfaces';
 import { CarsService } from '../cars.service';
 
@@ -12,12 +12,15 @@ export class CarMarksComponent implements OnInit {
 
   cars!: ICar[];
 
-  constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService, private router: Router) { }
 
   ngOnInit(): void {
     const mark = this.activatedRoute.snapshot.params['mark'];
     this.carsService.getCarsByMark(mark).subscribe({
       next: (cars) => {
+        if (cars.length == 0) {
+          this.router.navigateByUrl('404');
+        }
         this.cars = cars;
       },
       error: (err) => {

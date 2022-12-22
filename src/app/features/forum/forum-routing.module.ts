@@ -11,12 +11,12 @@ const routes: Routes = [
         component: ThemesComponent
     },
     {
-        path: 'addTheme',
+        path: 'newTheme',
         canActivate: [AuthGuard],
         component: NewThemeComponent
     },
     {
-        path: ':themeId',
+        path: 'theme/:themeId',
         component: ThemeContentComponent
     }
 ]
