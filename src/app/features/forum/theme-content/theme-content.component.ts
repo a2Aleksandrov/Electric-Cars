@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-import { ITheme } from '../../interfaces';
+import { IPost, ITheme } from '../../interfaces';
 import { ForumService } from '../forum.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class ThemeContentComponent implements OnInit {
     return this.router.navigateByUrl(url);
   }
 
-  postComment(formData: any) {
+  postComment(formData: IPost) {
     this.forumService.postComment(this.themeId, formData.comment, this.currentUserId).subscribe({
       next: (data) => {
         console.log(data);
