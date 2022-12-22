@@ -4,7 +4,7 @@ export interface IPost {
     theme: {
         _id: string;
         title: string;
-        comment: string;
+        content: string;
         author: {
             _id: string;
             username: string;

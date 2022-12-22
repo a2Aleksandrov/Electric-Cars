@@ -1,7 +1,7 @@
 export interface ITheme {
     _id: string;
     title: string;
-    comment: string;
+    content: string;
     author: {
         id: string;
         username: string;
