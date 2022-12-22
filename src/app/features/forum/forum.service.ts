@@ -18,8 +18,8 @@ export class ForumService {
     return this.http.get<ITheme>(`${environment.baseUrl}/themes/${themeId}`);
   }
 
-  addTheme() {
-    return this.http.post<ITheme>(`${environment.baseUrl}/themes`, {}, { withCredentials: true });
+  addTheme(title: string, content: string, authorId: string | undefined) {
+    return this.http.post<ITheme>(`${environment.baseUrl}/themes`, {title, content, authorId}, { withCredentials: true });
   }
 
   postComment(themeId: string, comment: string, authorId: string | undefined) {
