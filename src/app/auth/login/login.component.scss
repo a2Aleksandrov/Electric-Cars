@@ -1,4 +1,4 @@
-section{
+section {
     margin: 12.7rem;
 }
 
@@ -60,4 +60,12 @@ input[type=password] {
 p.error {
     text-align: left;
     color: red;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

@@ -12,6 +12,9 @@ p {
     padding: 0.3em 0 0.2em;
     margin: 0;
 }
+.theme-container a h2:hover{
+    text-decoration: underline;
+}
 
 .theme-name-wrapper {
     display: flex;
